@@ -1,0 +1,1471 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Buffers.IOutput.Enlarge(System.Int32)">
+            <summary>desiredBufferLength == 0 means "i don't care"</summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader" -->
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.ReadBigEndian``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Reads a structure of type <typeparamref name="T"/> out of a span of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.ReadLittleEndian``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Reads a structure of type <typeparamref name="T"/> out of a span of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.ReadBigEndian``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Reads a structure of type <typeparamref name="T"/> out of a span of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.ReadLittleEndian``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Reads a structure of type <typeparamref name="T"/> out of a span of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.Read``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Reads a structure of type T out of a slice of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.Read``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Reads a structure of type T out of a slice of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.TryRead``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},``0@)">
+            <summary>
+            Reads a structure of type T out of a slice of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferReader.TryRead``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},``0@)">
+            <summary>
+            Reads a structure of type T out of a slice of bytes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferWriter">
+            <summary>
+            Writes endian-specific primitives into spans.
+            </summary>
+            <remarks>
+            Use these helpers when you need to write specific endinaness.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferWriter.WriteBigEndian``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},``0)">
+            <summary>
+            Writes a structure of type T to a span of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferWriter.WriteLittleEndian``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},``0)">
+            <summary>
+            Writes a structure of type T to a span of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferWriter.Write``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},``0)">
+            <summary>
+            Writes a structure of type T into a slice of bytes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Binary.BufferWriter.TryWrite``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},``0)">
+            <summary>
+            Writes a structure of type T into a slice of bytes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Runtime.UnsafeUtilities">
+            <summary>
+            A collection of unsafe helper methods that we cannot implement in C#.
+            NOTE: these can be used for VeryBadThings(tm), so tread with care...
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Runtime.UnsafeUtilities.Reverse``1(``0)">
+            <summary>
+            Reverses a primitive value - performs an endianness swap
+            </summary> 
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Runtime.ReferenceCounter">
+            <summary>
+            Make sure the struct is not copied, i.e. pass it only by reference
+            </summary>
+            <remarks>
+            The  counter is not completly race-free. Reading GetGlobalCount and AddReference/Release are subject to a race.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Collections.Sequences.ISequence`1.TryGet(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Collections.Sequences.Position@,`0@,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="position"></param>
+            <param name="advance"></param>
+            <returns></returns>
+            <remarks></remarks>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment.Start">
+            <summary>
+            The Start represents the offset into Array where the range of "active" bytes begins. At the point when the block is leased
+            the Start is guaranteed to be equal to 0. The value of Start may be assigned anywhere between 0 and
+            Buffer.Length, and must be equal to or less than End.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment.End">
+            <summary>
+            The End represents the offset into Array where the range of "active" bytes ends. At the point when the block is leased
+            the End is guaranteed to be equal to Start. The value of Start may be assigned anywhere between 0 and
+            Buffer.Length, and must be equal to or less than End.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment.Next">
+            <summary>
+            Reference to the next block of data when the overall "active" bytes spans multiple blocks. At the point when the block is
+            leased Next is guaranteed to be null. Start, End, and Next are used together in order to create a linked-list of discontiguous 
+            working memory. The "active" memory is grown when bytes are copied in, End is increased, and Next is assigned. The "active" 
+            memory is shrunk when bytes are consumed, Start is increased, and blocks are returned to the pool.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment._owned">
+            <summary>
+            The buffer being tracked
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment.ReadOnly">
+            <summary>
+            If true, data should not be written into the backing block after the End offset. Data between start and end should never be modified
+            since this would break cloning.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment.ReadableBytes">
+            <summary>
+            The amount of readable bytes in this segment. Is is the amount of bytes between Start and End.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment.WritableBytes">
+            <summary>
+            The amount of writable bytes in this segment. It is the amount of bytes between Length and End
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferSegment.ToString">
+            <summary>
+            ToString overridden for debugger convenience. This displays the "active" byte information in this block as ASCII characters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.FlushResult.IsCancelled">
+            <summary>
+            True if the currrent flush was cancelled
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.FlushResult.IsCompleted">
+            <summary>
+            True if the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter"/> is complete
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeConnection">
+            <summary>
+            Defines a class that provides a connection from which data can be read from and written to.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeConnection.Input">
+            <summary>
+            Gets the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/> half of the duplex connection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeConnection.Output">
+            <summary>
+            Gets the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter"/> half of the duplex connection.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader">
+            <summary>
+            Defines a class that provides a pipeline from which data can be read.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.TryRead(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadResult@)">
+            <summary>
+            Attempt to synchronously read data the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/>.
+            </summary>
+            <param name="result">The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadResult"/></param>
+            <returns>True if data was available, or if the call was cancelled or the writer completed with an error.</returns>
+            <remarks>If the pipe returns false, there's no need to call Advance.</remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.ReadAsync(System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously reads a sequence of bytes from the current <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/>.
+            </summary>
+            <returns>A <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBufferAwaitable"/> representing the asynchronous read operation.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.Advance(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor,Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor)">
+            <summary>
+            Moves forward the pipeline's read cursor to after the consumed data.
+            </summary>
+            <param name="consumed">Marks the extent of the data that has been succesfully proceesed.</param>
+            <param name="examined">Marks the extent of the data that has been read and examined.</param>
+            <remarks>
+            The memory for the consumed data will be released and no longer available.
+            The examined data communicates to the pipeline when it should signal more data is available.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.CancelPendingRead">
+            <summary>
+            Cancel to currently pending or next call to <see cref="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.ReadAsync(System.Threading.CancellationToken)"/> if none is pending, without completing the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.Complete(System.Exception)">
+            <summary>
+            Signal to the producer that the consumer is done reading.
+            </summary>
+            <param name="exception">Optional Exception indicating a failure that's causing the pipeline to complete.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.OnWriterCompleted(System.Action{System.Exception,System.Object},System.Object)">
+            <summary>
+            Registers callback that gets executed when writer side of pipe completes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter">
+            <summary>
+            Defines a class that provides a pipeline to which data can be written.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter.Alloc(System.Int32)">
+            <summary>
+            Allocates memory from the pipeline to write into.
+            </summary>
+            <param name="minimumSize">The minimum size buffer to allocate</param>
+            <returns>A <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer"/> that can be written to.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter.Complete(System.Exception)">
+            <summary>
+            Marks the pipeline as being complete, meaning no more items will be written to it.
+            </summary>
+            <param name="exception">Optional Exception indicating a failure that's causing the pipeline to complete.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter.CancelPendingFlush">
+            <summary>
+            Cancel to currently pending or next call to <see cref="!:ReadAsync"/> if none is pending, without completing the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter.OnReaderCompleted(System.Action{System.Exception,System.Object},System.Object)">
+            <summary>
+            Registers callback that gets executed when reader side of pipe completes.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferEnumerator">
+            <summary>
+            An enumerator over the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferEnumerator.#ctor(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor,Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferEnumerator.Current">
+            <summary>
+            The current <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Buffers.Buffer`1"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferEnumerator.MoveNext">
+            <summary>
+            Moves to the next <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Buffers.Buffer`1"/> in the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.BufferEnumerator.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool">
+            <summary>
+            Used to allocate and distribute re-usable blocks of memory.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._blockStride">
+            <summary>
+            The gap between blocks' starting address. 4096 is chosen because most operating systems are 4k pages in size and alignment.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._blockUnused">
+            <summary>
+            The last 64 bytes of a block are unused to prevent CPU from pre-fetching the next 64 byte into it's memory cache. 
+            See https://github.com/aspnet/KestrelHttpServer/issues/117 and https://www.youtube.com/watch?v=L7zSU9HI-6I
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._blockCount">
+            <summary>
+            Allocating 32 contiguous blocks per slab makes the slab size 128k. This is larger than the 85k size which will place the memory
+            in the large object heap. This means the GC will not try to relocate this array, so the fact it remains pinned does not negatively
+            affect memory management's compactification.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._blockLength">
+            <summary>
+            4096 - 64 gives you a blockLength of 4032 usable bytes per block.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool.MaxPooledBlockLength">
+            <summary>
+            Max allocation block size for pooled blocks, 
+            larger values can be leased but they will be disposed after use rather than returned to the pool.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._slabLength">
+            <summary>
+            4096 * 32 gives you a slabLength of 128k contiguous bytes allocated per slab
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._blocks">
+            <summary>
+            Thread-safe collection of blocks which are currently in the pool. A slab will pre-allocate all of the block tracking objects
+            and add them to this collection. When memory is requested it is taken from here first, and when it is returned it is re-added.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._slabs">
+            <summary>
+            Thread-safe collection of slabs which have been allocated by this pool. As long as a slab is in this collection and slab.IsActive, 
+            the blocks will be added to _blocks when returned.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool._disposedValue">
+            <summary>
+            This is part of implementing the IDisposable pattern.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool.Lease">
+            <summary>
+            Called to take a block from the pool.
+            </summary>
+            <returns>The block that is reserved for the called. It must be passed to Return when it is no longer being used.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool.AllocateSlab">
+            <summary>
+            Internal method called when a block is requested and the pool is empty. It allocates one additional slab, creates all of the 
+            block tracking objects, and adds them all to the pool.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool.Return(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolBlock)">
+            <summary>
+            Called to return a block to the pool. Once Return has been called the memory no longer belongs to the caller, and
+            Very Bad Things will happen if the memory is read of modified subsequently. If a caller fails to call Return and the
+            block tracking object is garbage collected, the block tracking object's finalizer will automatically re-create and return
+            a new tracking object into the pool. This will only happen if there is a bug in the server, however it is necessary to avoid
+            leaving "dead zones" in the slab due to lost block tracking objects.
+            </summary>
+            <param name="block">The block to return. It must have been acquired by calling Lease on the same memory pool instance.</param>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolBlock">
+            <summary>
+            Block tracking object used by the byte buffer memory pool. A slab is a large allocation which is divided into smaller blocks. The
+            individual blocks are then treated as independent array segments.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolBlock.#ctor(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPool,Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolSlab,System.Int32,System.Int32)">
+            <summary>
+            This object cannot be instantiated outside of the static Create method
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolBlock.Pool">
+            <summary>
+            Back-reference to the memory pool which this block was allocated from. It may only be returned to this pool.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolBlock.Slab">
+            <summary>
+            Back-reference to the slab from which this block was taken, or null if it is one-time-use memory.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolBlock.ToString">
+            <summary>
+            ToString overridden for debugger convenience. This displays the "active" byte information in this block as ASCII characters.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolSlab">
+            <summary>
+            Slab tracking object used by the byte buffer memory pool. A slab is a large allocation which is divided into smaller blocks. The
+            individual blocks are then treated as independant array segments.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolSlab._gcHandle">
+            <summary>
+            This handle pins the managed array in memory until the slab is disposed. This prevents it from being
+            relocated and enables any subsections of the array to be used as native memory pointers to P/Invoked API calls.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.MemoryPoolSlab.IsActive">
+            <summary>
+            True as long as the blocks from this slab are to be considered returnable to the pool. In order to shrink the 
+            memory pool size an entire slab must be removed. That is done by (1) setting IsActive to false and removing the
+            slab from the pool's _slabs collection, (2) as each block currently in use is Return()ed to the pool it will
+            be allowed to be garbage collected rather than re-pooled, and (3) when all block tracking objects are garbage
+            collected and the slab is no longer references the slab will be garbage collected and the memory unpinned will
+            be unpinned by the slab's Dispose.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe">
+            <summary>
+            Default <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter"/> and <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/> implementation.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe.#ctor(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Buffers.BufferPool,Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.PipeOptions)">
+            <summary>
+            Initializes the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe"/> with the specifed <see cref="!:IBufferPool"/>.
+            </summary>
+            <param name="pool"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe.Microsoft#AspNetCore#Server#Kestrel#Internal#System#IO#Pipelines#IPipeWriter#Alloc(System.Int32)">
+            <summary>
+            Allocates memory from the pipeline to write into.
+            </summary>
+            <param name="minimumSize">The minimum size buffer to allocate</param>
+            <returns>A <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer"/> that can be written to.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe.Microsoft#AspNetCore#Server#Kestrel#Internal#System#IO#Pipelines#IPipeWriter#Complete(System.Exception)">
+            <summary>
+            Marks the pipeline as being complete, meaning no more items will be written to it.
+            </summary>
+            <param name="exception">Optional Exception indicating a failure that's causing the pipeline to complete.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe.Microsoft#AspNetCore#Server#Kestrel#Internal#System#IO#Pipelines#IPipeReader#Complete(System.Exception)">
+            <summary>
+            Signal to the producer that the consumer is done reading.
+            </summary>
+            <param name="exception">Optional Exception indicating a failure that's causing the pipeline to complete.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe.Microsoft#AspNetCore#Server#Kestrel#Internal#System#IO#Pipelines#IPipeReader#CancelPendingRead">
+            <summary>
+            Cancel to currently pending call to <see cref="!:ReadAsync"/> without completing the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.Pipe.Microsoft#AspNetCore#Server#Kestrel#Internal#System#IO#Pipelines#IPipeWriter#CancelPendingFlush">
+            <summary>
+            Cancel to currently pending call to <see cref="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.FlushAsync(System.Threading.CancellationToken)"/> without completing the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.PipeFactory">
+            <summary>
+            Factory used to creaet instances of various pipelines.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.PreservedBuffer">
+            <summary>
+            Represents a buffer that can read a sequential series of bytes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.PreservedBuffer.Buffer">
+            <summary>
+            Returns the preserved <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.PreservedBuffer.Dispose">
+            <summary>
+            Dispose the preserved buffer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadResult">
+            <summary>
+            The result of a <see cref="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader.ReadAsync(System.Threading.CancellationToken)"/> call.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadResult.Buffer">
+            <summary>
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> that was read
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadResult.IsCancelled">
+            <summary>
+            True if the currrent read was cancelled
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadResult.IsCompleted">
+            <summary>
+            True if the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/> is complete
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer">
+            <summary>
+            Represents a buffer that can read a sequential series of bytes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Length">
+            <summary>
+            Length of the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> in bytes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.IsEmpty">
+            <summary>
+            Determines if the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> is empty.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.IsSingleSpan">
+            <summary>
+            Determins if the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> is a single <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Buffers.Buffer`1"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Start">
+            <summary>
+            A cursor to the start of the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.End">
+            <summary>
+            A cursor to the end of the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Slice(System.Int32,System.Int32)">
+            <summary>
+            Forms a slice out of the given <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>, beginning at 'start', and is at most length bytes
+            </summary>
+            <param name="start">The index at which to begin this slice.</param>
+            <param name="length">The length of the slice</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Slice(System.Int32,Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor)">
+            <summary>
+            Forms a slice out of the given <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>, beginning at 'start', ending at 'end' (inclusive).
+            </summary>
+            <param name="start">The index at which to begin this slice.</param>
+            <param name="end">The end (inclusive) of the slice</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Slice(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor,Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor)">
+            <summary>
+            Forms a slice out of the given <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>, beginning at 'start', ending at 'end' (inclusive).
+            </summary>
+            <param name="start">The starting (inclusive) <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor"/> at which to begin this slice.</param>
+            <param name="end">The ending (inclusive) <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor"/> of the slice</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Slice(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor,System.Int32)">
+            <summary>
+            Forms a slice out of the given <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>, beginning at 'start', and is at most length bytes
+            </summary>
+            <param name="start">The starting (inclusive) <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor"/> at which to begin this slice.</param>
+            <param name="length">The length of the slice</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Slice(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor)">
+            <summary>
+            Forms a slice out of the given <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>, beginning at 'start', ending at the existing <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>'s end.
+            </summary>
+            <param name="start">The starting (inclusive) <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor"/> at which to begin this slice.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Slice(System.Int32)">
+            <summary>
+            Forms a slice out of the given <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>, beginning at 'start', ending at the existing <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>'s end.
+            </summary>
+            <param name="start">The start index at which to begin this slice.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Preserve">
+            <summary>
+            This transfers ownership of the buffer from the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/> to the caller of this method. Preserved buffers must be disposed to avoid
+            memory leaks.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.CopyTo(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Copy the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> to the specified <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1"/>.
+            </summary>
+            <param name="destination">The destination <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1"/>.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.ToArray">
+            <summary>
+            Converts the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> to a <see cref="T:byte[]"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.ToString">
+             <summary>
+            
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.GetEnumerator">
+            <summary>
+            Returns an enumerator over the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Create(System.Byte[])">
+            <summary>
+            Create a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> over an array.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Create(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Create a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> over an array.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer.Create(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Buffers.OwnedBuffer{System.Byte},System.Int32,System.Int32)">
+            <summary>
+            Create a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> over an OwnedBuffer.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBufferAwaitable">
+            <summary>
+            An awaitable object that represents an asynchronous read operation
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.SegmentEnumerator.#ctor(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor,Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadCursor)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.SegmentEnumerator.Current">
+            <summary>
+            The current <see cref="!:Buffer&lt;Byte&gt;"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.SegmentEnumerator.MoveNext">
+            <summary>
+            Moves to the next <see cref="!:Buffer&lt;Byte&gt;"/> in the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.UnownedBuffer">
+            <summary>
+            Represents a buffer that is owned by an external component.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer">
+            <summary>
+            Represents a buffer that can write a sequential series of bytes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Buffer">
+            <summary>
+            Available memory.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.BytesWritten">
+            <summary>
+            Returns the number of bytes currently written and uncommitted.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.AsReadableBuffer">
+            <summary>
+            Obtain a readable buffer over the data written but uncommitted to this buffer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Ensure(System.Int32)">
+            <summary>
+            Ensures the specified number of bytes are available.
+            Will assign more memory to the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer"/> if requested amount not currently available.
+            </summary>
+            <param name="count">number of bytes</param>
+            <remarks>
+            Used when writing to <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Buffer"/> directly. 
+            </remarks>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            More requested than underlying <see cref="!:IBufferPool"/> can allocate in a contiguous block.
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Append(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer)">
+            <summary>
+            Appends the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> to the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer"/> in-place without copies.
+            </summary>
+            <param name="buffer">The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.ReadableBuffer"/> to append</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Advance(System.Int32)">
+            <summary>
+            Moves forward the underlying <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter"/>'s write cursor but does not commit the data.
+            </summary>
+            <param name="bytesWritten">number of bytes to be marked as written.</param>
+            <remarks>Forwards the start of available <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Buffer"/> by <paramref name="bytesWritten"/>.</remarks>
+            <exception cref="T:System.ArgumentException"><paramref name="bytesWritten"/> is larger than the current data available data.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="bytesWritten"/> is negative.</exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Commit">
+            <summary>
+            Commits all outstanding written data to the underlying <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeWriter"/> so they can be read
+            and seals the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer"/> so no more data can be committed.
+            </summary>
+            <remarks>
+            While an on-going conncurent read may pick up the data, <see cref="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.FlushAsync(System.Threading.CancellationToken)"/> should be called to signal the reader.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.FlushAsync(System.Threading.CancellationToken)">
+            <summary>
+            Signals the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.IPipeReader"/> data is available.
+            Will <see cref="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer.Commit"/> if necessary.
+            </summary>
+            <returns>A task that completes when the data is fully flushed.</returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBufferExtensions">
+            <summary>
+            Common extension methods against writable buffers
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBufferExtensions.Write(Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer,Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Writes the source <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1"/> to the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer"/>.
+            </summary>
+            <param name="buffer">The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.IO.Pipelines.WritableBuffer"/></param>
+            <param name="source">The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1"/> to write</param>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1">
+            <summary>
+            ReadOnlySpan represents a contiguous region of arbitrary memory. Unlike arrays, it can point to either managed
+            or native memory, or to memory allocated on the stack. It is type- and memory-safe.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.#ctor(`0[])">
+            <summary>
+            Creates a new read-only span over the entirety of the target array.
+            </summary>
+            <param name="array">The target array.</param>
+            <exception cref="!:System.ArgumentNullException">Thrown when <paramref name="array"/> is a null
+            reference (Nothing in Visual Basic).</exception>
+            <exception cref="!:System.ArrayTypeMismatchException">Thrown when <paramref name="array"/> is covariant and array's type is not exactly T[].</exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.#ctor(`0[],System.Int32)">
+            <summary>
+            Creates a new read-only span over the portion of the target array beginning
+            at 'start' index and covering the remainder of the array.
+            </summary>
+            <param name="array">The target array.</param>
+            <param name="start">The index at which to begin the read-only span.</param>
+            <exception cref="!:System.ArgumentNullException">Thrown when <paramref name="array"/> is a null
+            reference (Nothing in Visual Basic).</exception>
+            <exception cref="!:System.ArrayTypeMismatchException">Thrown when <paramref name="array"/> is covariant and array's type is not exactly T[].</exception>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> is not in the range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.#ctor(`0[],System.Int32,System.Int32)">
+            <summary>
+            Creates a new read-only span over the portion of the target array beginning
+            at 'start' index and ending at 'end' index (exclusive).
+            </summary>
+            <param name="array">The target array.</param>
+            <param name="start">The index at which to begin the read-only span.</param>
+            <param name="length">The number of items in the read-only span.</param>
+            <exception cref="!:System.ArgumentNullException">Thrown when <paramref name="array"/> is a null
+            reference (Nothing in Visual Basic).</exception>
+            <exception cref="!:System.ArrayTypeMismatchException">Thrown when <paramref name="array"/> is covariant and array's type is not exactly T[].</exception>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> or end index is not in the range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.#ctor(System.Void*,System.Int32)">
+            <summary>
+            Creates a new read-only span over the target unmanaged buffer.  Clearly this
+            is quite dangerous, because we are creating arbitrarily typed T's
+            out of a void*-typed block of memory.  And the length is not checked.
+            But if this creation is correct, then all subsequent uses are correct.
+            </summary>
+            <param name="pointer">An unmanaged pointer to memory.</param>
+            <param name="length">The number of <typeparamref name="T"/> elements the memory contains.</param>
+            <exception cref="!:System.ArgumentException">
+            Thrown when <typeparamref name="T"/> is reference type or contains pointers and hence cannot be stored in unmanaged memory.
+            </exception>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="length"/> is negative.
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.DangerousCreate(System.Object,`0@,System.Int32)">
+            <summary>
+            Create a new read-only span over a portion of a regular managed object. This can be useful
+            if part of a managed object represents a "fixed array." This is dangerous because neither the
+            <paramref name="length"/> is checked, nor <paramref name="obj"/> being null, nor the fact that
+            "rawPointer" actually lies within <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The managed object that contains the data to span over.</param>
+            <param name="objectData">A reference to data within that object.</param>
+            <param name="length">The number of <typeparamref name="T"/> elements the memory contains.</param>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.Length">
+            <summary>
+            The number of items in the read-only span.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.IsEmpty">
+            <summary>
+            Returns true if Length is 0.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.Item(System.Int32)">
+            <summary>
+            Returns the specified element of the read-only span.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+            <exception cref="!:System.IndexOutOfRangeException">
+            Thrown when index less than 0 or index greater than or equal to Length
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.CopyTo(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0})">
+             <summary>
+             Copies the contents of this read-only span into destination span. If the source
+             and destinations overlap, this method behaves as if the original values in
+             a temporary location before the destination is overwritten.
+            
+             <param name="destination">The span to copy items into.</param>
+             <exception cref="!:System.ArgumentException">
+             Thrown when the destination Span is shorter than the source Span.
+             </exception>
+             </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.TryCopyTo(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0})">
+             <summary>
+             Copies the contents of this read-only span into destination span. If the source
+             and destinations overlap, this method behaves as if the original values in
+             a temporary location before the destination is overwritten.
+            
+             <returns>If the destination span is shorter than the source span, this method
+             return false and no data is written to the destination.</returns>
+             </summary>
+             <param name="destination">The span to copy items into.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.op_Equality(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{`0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{`0})">
+            <summary>
+            Returns true if left and right point at the same memory and have the same length.  Note that
+            this does *not* check to see if the *contents* are equal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.op_Inequality(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{`0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{`0})">
+            <summary>
+            Returns false if left and right point at the same memory and have the same length.  Note that
+            this does *not* check to see if the *contents* are equal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.Equals(System.Object)">
+            <summary>
+            This method is not supported as spans cannot be boxed. To compare two spans, use operator==.
+            <exception cref="!:System.NotSupportedException">
+            Always thrown by this method.
+            </exception>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.GetHashCode">
+            <summary>
+            This method is not supported as spans cannot be boxed.
+            <exception cref="!:System.NotSupportedException">
+            Always thrown by this method.
+            </exception>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.op_Implicit(`0[])~Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{`0}">
+            <summary>
+            Defines an implicit conversion of an array to a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.op_Implicit(System.ArraySegment{`0})~Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{`0}">
+            <summary>
+            Defines an implicit conversion of a <see cref="T:System.ArraySegment`1"/> to a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.Slice(System.Int32)">
+            <summary>
+            Forms a slice out of the given read-only span, beginning at 'start'.
+            </summary>
+            <param name="start">The index at which to begin this slice.</param>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> index is not in range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.Slice(System.Int32,System.Int32)">
+            <summary>
+            Forms a slice out of the given read-only span, beginning at 'start', of given length
+            </summary>
+            <param name="start">The index at which to begin this slice.</param>
+            <param name="length">The desired length for the slice (exclusive).</param>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> or end index is not in range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.ToArray">
+            <summary>
+            Copies the contents of this read-only span into a new array.  This heap
+            allocates, so should generally be avoided, however it is sometimes
+            necessary to bridge the gap with APIs written in terms of arrays.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.Empty">
+            <summary>
+            Returns a 0-length read-only span whose base is the null pointer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1.DangerousGetPinnableReference">
+            <summary>
+            Returns a reference to the 0th element of the Span. If the Span is empty, returns a reference to the location where the 0th element
+            would have been stored. Such a reference can be used for pinning but must never be dereferenced.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1">
+            <summary>
+            Span represents a contiguous region of arbitrary memory. Unlike arrays, it can point to either managed
+            or native memory, or to memory allocated on the stack. It is type- and memory-safe.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.#ctor(`0[])">
+            <summary>
+            Creates a new span over the entirety of the target array.
+            </summary>
+            <param name="array">The target array.</param>
+            <exception cref="!:System.ArgumentNullException">Thrown when <paramref name="array"/> is a null
+            reference (Nothing in Visual Basic).</exception>
+            <exception cref="!:System.ArrayTypeMismatchException">Thrown when <paramref name="array"/> is covariant and array's type is not exactly T[].</exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.#ctor(`0[],System.Int32)">
+            <summary>
+            Creates a new span over the portion of the target array beginning
+            at 'start' index and covering the remainder of the array.
+            </summary>
+            <param name="array">The target array.</param>
+            <param name="start">The index at which to begin the span.</param>
+            <exception cref="!:System.ArgumentNullException">Thrown when <paramref name="array"/> is a null
+            reference (Nothing in Visual Basic).</exception>
+            <exception cref="!:System.ArrayTypeMismatchException">Thrown when <paramref name="array"/> is covariant and array's type is not exactly T[].</exception>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> is not in the range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.#ctor(`0[],System.Int32,System.Int32)">
+            <summary>
+            Creates a new span over the portion of the target array beginning
+            at 'start' index and ending at 'end' index (exclusive).
+            </summary>
+            <param name="array">The target array.</param>
+            <param name="start">The index at which to begin the span.</param>
+            <param name="length">The number of items in the span.</param>
+            <exception cref="!:System.ArgumentNullException">Thrown when <paramref name="array"/> is a null
+            reference (Nothing in Visual Basic).</exception>
+            <exception cref="!:System.ArrayTypeMismatchException">Thrown when <paramref name="array"/> is covariant and array's type is not exactly T[].</exception>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> or end index is not in the range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.#ctor(System.Void*,System.Int32)">
+            <summary>
+            Creates a new span over the target unmanaged buffer.  Clearly this
+            is quite dangerous, because we are creating arbitrarily typed T's
+            out of a void*-typed block of memory.  And the length is not checked.
+            But if this creation is correct, then all subsequent uses are correct.
+            </summary>
+            <param name="pointer">An unmanaged pointer to memory.</param>
+            <param name="length">The number of <typeparamref name="T"/> elements the memory contains.</param>
+            <exception cref="!:System.ArgumentException">
+            Thrown when <typeparamref name="T"/> is reference type or contains pointers and hence cannot be stored in unmanaged memory.
+            </exception>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="length"/> is negative.
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.DangerousCreate(System.Object,`0@,System.Int32)">
+            <summary>
+            Create a new span over a portion of a regular managed object. This can be useful
+            if part of a managed object represents a "fixed array." This is dangerous because neither the
+            <paramref name="length"/> is checked, nor <paramref name="obj"/> being null, nor the fact that
+            "rawPointer" actually lies within <paramref name="obj"/>.
+            </summary>
+            <param name="obj">The managed object that contains the data to span over.</param>
+            <param name="objectData">A reference to data within that object.</param>
+            <param name="length">The number of <typeparamref name="T"/> elements the memory contains.</param>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Length">
+            <summary>
+            The number of items in the span.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.IsEmpty">
+            <summary>
+            Returns true if Length is 0.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Item(System.Int32)">
+            <summary>
+            Returns a reference to specified element of the Span.
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+            <exception cref="!:System.IndexOutOfRangeException">
+            Thrown when index less than 0 or index greater than or equal to Length
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Clear">
+            <summary>
+            Clears the contents of this span.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Fill(`0)">
+            <summary>
+            Fills the contents of this span with the given value.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.CopyTo(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0})">
+             <summary>
+             Copies the contents of this span into destination span. If the source
+             and destinations overlap, this method behaves as if the original values in
+             a temporary location before the destination is overwritten.
+            
+             <param name="destination">The span to copy items into.</param>
+             <exception cref="!:System.ArgumentException">
+             Thrown when the destination Span is shorter than the source Span.
+             </exception>
+             </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.TryCopyTo(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0})">
+             <summary>
+             Copies the contents of this span into destination span. If the source
+             and destinations overlap, this method behaves as if the original values in
+             a temporary location before the destination is overwritten.
+            
+             <returns>If the destination span is shorter than the source span, this method
+             return false and no data is written to the destination.</returns>
+             </summary>
+             <param name="destination">The span to copy items into.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.op_Equality(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0})">
+            <summary>
+            Returns true if left and right point at the same memory and have the same length.  Note that
+            this does *not* check to see if the *contents* are equal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.op_Inequality(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0})">
+            <summary>
+            Returns false if left and right point at the same memory and have the same length.  Note that
+            this does *not* check to see if the *contents* are equal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Equals(System.Object)">
+            <summary>
+            This method is not supported as spans cannot be boxed. To compare two spans, use operator==.
+            <exception cref="!:System.NotSupportedException">
+            Always thrown by this method.
+            </exception>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.GetHashCode">
+            <summary>
+            This method is not supported as spans cannot be boxed.
+            <exception cref="!:System.NotSupportedException">
+            Always thrown by this method.
+            </exception>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.op_Implicit(`0[])~Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0}">
+            <summary>
+            Defines an implicit conversion of an array to a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.op_Implicit(System.ArraySegment{`0})~Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0}">
+            <summary>
+            Defines an implicit conversion of a <see cref="T:System.ArraySegment`1"/> to a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.op_Implicit(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{`0})~Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{`0}">
+            <summary>
+            Defines an implicit conversion of a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1"/> to a <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan`1"/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Slice(System.Int32)">
+            <summary>
+            Forms a slice out of the given span, beginning at 'start'.
+            </summary>
+            <param name="start">The index at which to begin this slice.</param>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> index is not in range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Slice(System.Int32,System.Int32)">
+            <summary>
+            Forms a slice out of the given span, beginning at 'start', of given length
+            </summary>
+            <param name="start">The index at which to begin this slice.</param>
+            <param name="length">The desired length for the slice (exclusive).</param>
+            <exception cref="!:System.ArgumentOutOfRangeException">
+            Thrown when the specified <paramref name="start"/> or end index is not in range (&lt;0 or &gt;=Length).
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.ToArray">
+            <summary>
+            Copies the contents of this span into a new array.  This heap
+            allocates, so should generally be avoided, however it is sometimes
+            necessary to bridge the gap with APIs written in terms of arrays.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.Empty">
+            <summary>
+            Returns a 0-length span whose base is the null pointer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span`1.DangerousGetPinnableReference">
+            <summary>
+            Returns a reference to the 0th element of the Span. If the Span is empty, returns a reference to the location where the 0th element
+            would have been stored. Such a reference can be used for pinning but must never be dereferenced.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions">
+            <summary>
+            Extension methods for Span&lt;T&gt;.
+            </summary>
+            <summary>
+            Extension methods for Span&lt;T&gt;.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.AsBytes``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{``0})">
+            <summary>
+            Casts a Span of one primitive type <typeparamref name="T"/> to Span of bytes.
+            That type may not contain pointers or references. This is checked at runtime in order to preserve type safety.
+            </summary>
+            <param name="source">The source slice, of type <typeparamref name="T"/>.</param>
+            <exception cref="!:System.ArgumentException">
+            Thrown when <typeparamref name="T"/> contains pointers.
+            </exception>
+            <exception cref="!:System.OverflowException">
+            Thrown if the Length property of the new Span would exceed Int32.MaxValue.
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.AsBytes``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Casts a ReadOnlySpan of one primitive type <typeparamref name="T"/> to ReadOnlySpan of bytes.
+            That type may not contain pointers or references. This is checked at runtime in order to preserve type safety.
+            </summary>
+            <param name="source">The source slice, of type <typeparamref name="T"/>.</param>
+            <exception cref="!:System.ArgumentException">
+            Thrown when <typeparamref name="T"/> contains pointers.
+            </exception>
+            <exception cref="!:System.OverflowException">
+            Thrown if the Length property of the new Span would exceed Int32.MaxValue.
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.AsSpan(System.String)">
+            <summary>
+            Creates a new readonly span over the portion of the target string.
+            </summary>
+            <param name="text">The target string.</param>
+            <exception cref="!:System.ArgumentNullException">Thrown when <paramref name="text"/> is null.</exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.NonPortableCast``2(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{``0})">
+            <summary>
+            Casts a Span of one primitive type <typeparamref name="TFrom"/> to another primitive type <typeparamref name="TTo"/>.
+            These types may not contain pointers or references. This is checked at runtime in order to preserve type safety.
+            </summary>
+            <remarks>
+            Supported only for platforms that support misaligned memory access.
+            </remarks>
+            <param name="source">The source slice, of type <typeparamref name="TFrom"/>.</param>
+            <exception cref="!:System.ArgumentException">
+            Thrown when <typeparamref name="TFrom"/> or <typeparamref name="TTo"/> contains pointers.
+            </exception>
+            <exception cref="!:System.OverflowException">
+            Thrown if the Length property of the new Span would exceed Int32.MaxValue.
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.NonPortableCast``2(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Casts a ReadOnlySpan of one primitive type <typeparamref name="TFrom"/> to another primitive type <typeparamref name="TTo"/>.
+            These types may not contain pointers or references. This is checked at runtime in order to preserve type safety.
+            </summary>
+            <remarks>
+            Supported only for platforms that support misaligned memory access.
+            </remarks>
+            <param name="source">The source slice, of type <typeparamref name="TFrom"/>.</param>
+            <exception cref="!:System.ArgumentException">
+            Thrown when <typeparamref name="TFrom"/> or <typeparamref name="TTo"/> contains pointers.
+            </exception>
+            <exception cref="!:System.OverflowException">
+            Thrown if the Length property of the new Span would exceed Int32.MaxValue.
+            </exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{``0},``0)">
+            <summary>
+            Searches for the specified value and returns the index of its first occurrence. If not found, returns -1. Values are compared using IEquatable&lt;T&gt;.Equals(T). 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The value to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},System.Byte)">
+            <summary>
+            Searches for the specified value and returns the index of its first occurrence. If not found, returns -1. 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The value to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{``0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Searches for the specified sequence and returns the index of its first occurrence. If not found, returns -1. Values are compared using IEquatable&lt;T&gt;.Equals(T). 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The sequence to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Searches for the specified sequence and returns the index of its first occurrence. If not found, returns -1.
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The sequence to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.SequenceEqual``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{``0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements using IEquatable&lt;T&gt;.Equals(T). 
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.SequenceEqual(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0},``0)">
+            <summary>
+            Searches for the specified value and returns the index of its first occurrence. If not found, returns -1. Values are compared using IEquatable&lt;T&gt;.Equals(T). 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The value to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},System.Byte)">
+            <summary>
+            Searches for the specified value and returns the index of its first occurrence. If not found, returns -1. 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The value to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Searches for the specified sequence and returns the index of its first occurrence. If not found, returns -1. Values are compared using IEquatable&lt;T&gt;.Equals(T). 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The sequence to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOf(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Searches for the specified sequence and returns the index of its first occurrence. If not found, returns -1.
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value">The sequence to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOfAny(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},System.Byte,System.Byte)">
+            <summary>
+            Searches for the first index of any of the specified values similar to calling IndexOf several times with the logical OR operator. If not found, returns -1.
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value0">One of the values to search for.</param>
+            <param name="value1">One of the values to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOfAny(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Searches for the first index of any of the specified values similar to calling IndexOf several times with the logical OR operator. If not found, returns -1.
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value0">One of the values to search for.</param>
+            <param name="value1">One of the values to search for.</param>
+            <param name="value2">One of the values to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOfAny(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Searches for the first index of any of the specified values similar to calling IndexOf several times with the logical OR operator. If not found, returns -1. 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="values">The set of values to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOfAny(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},System.Byte,System.Byte)">
+            <summary>
+            Searches for the first index of any of the specified values similar to calling IndexOf several times with the logical OR operator. If not found, returns -1.
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value0">One of the values to search for.</param>
+            <param name="value1">One of the values to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOfAny(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Searches for the first index of any of the specified values similar to calling IndexOf several times with the logical OR operator. If not found, returns -1. 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="value0">One of the values to search for.</param>
+            <param name="value1">One of the values to search for.</param>
+            <param name="value2">One of the values to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.IndexOfAny(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Searches for the first index of any of the specified values similar to calling IndexOf several times with the logical OR operator. If not found, returns -1. 
+            </summary>
+            <param name="span">The span to search.</param>
+            <param name="values">The set of values to search for.</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.SequenceEqual``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements using IEquatable&lt;T&gt;.Equals(T). 
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.SequenceEqual(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Determines whether two sequences are equal by comparing the elements.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.StartsWith(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Determines whether the specified sequence appears at the start of the span.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.StartsWith``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{``0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Determines whether the specified sequence appears at the start of the span.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.StartsWith(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Determines whether the specified sequence appears at the start of the span.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.StartsWith``1(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0},Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{``0})">
+            <summary>
+            Determines whether the specified sequence appears at the start of the span.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.AsSpan``1(``0[])">
+            <summary>
+            Creates a new  span over the portion of the target array.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.AsSpan``1(System.ArraySegment{``0})">
+            <summary>
+            Creates a new  span over the portion of the target array segment.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanExtensions.CopyTo``1(``0[],Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{``0})">
+             <summary>
+             Copies the contents of the array into the span. If the source
+             and destinations overlap, this method behaves as if the original values in
+             a temporary location before the destination is overwritten.
+             
+            <param name="array">The array to copy items from.</param>
+             <param name="destination">The span to copy items into.</param>
+             <exception cref="!:System.ArgumentException">
+             Thrown when the destination Span is shorter than the source array.
+             </exception>
+             </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanHelpers.CopyTo``1(``0@,System.Int32,``0@,System.Int32)">
+             <summary>
+             Implements the copy functionality used by Span and ReadOnlySpan.
+            
+             NOTE: Fast span implements TryCopyTo in corelib and therefore this implementation
+                   is only used by portable span. The code must live in code that only compiles
+                   for portable span which means either each individual span implementation
+                   of this shared code file. Other shared SpanHelper.X.cs files are compiled
+                   for both portable and fast span implementations.
+             </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanHelpers.Add``1(System.IntPtr,System.Int32)">
+             <summary>
+             Computes "start + index * sizeof(T)", using the unsigned IntPtr-sized multiplication for 32 and 64 bits.
+            
+             Assumptions:
+                 Start and index are non-negative, and already pre-validated to be within the valid range of their containing Span.
+            
+                 If the byte length (Span.Length * sizeof(T)) does an unsigned overflow (i.e. the buffer wraps or is too big to fit within the address space),
+                 the behavior is undefined.
+            
+             </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.SpanHelpers.IsReferenceOrContainsReferences``1">
+            <summary>
+            Determine if a type is eligible for storage in unmanaged memory.
+            Portable equivalent of RuntimeHelpers.IsReferenceOrContainsReferences&lt;T&gt;()
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Text.Encodings.Web.Utf8.UrlEncoder.Decode(Microsoft.AspNetCore.Server.Kestrel.Internal.System.ReadOnlySpan{System.Byte},Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Unescape a URL path
+            </summary>
+            <param name="source">The byte span represents a UTF8 encoding url path.</param>
+            <param name="destination">The byte span where unescaped url path is copied to.</param>
+            <returns>The length of the byte sequence of the unescaped url path.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Text.Encodings.Web.Utf8.UrlEncoder.DecodeInPlace(Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Unescape a URL path in place.
+            </summary>
+            <param name="buffer">The byte span represents a UTF8 encoding url path.</param>
+            <returns>The number of the bytes representing the result.</returns>
+            <remarks>
+            The unescape is done in place, which means after decoding the result is the subset of 
+            the input span.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Text.Encodings.Web.Utf8.UrlEncoder.DecodeCore(System.Int32@,System.Int32@,Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Unescape the percent-encodings
+            </summary>
+            <param name="sourceIndex">The iterator point to the first % char</param>
+            <param name="destinationIndex">The place to write to</param>
+            <param name="end">The end of the buffer</param>
+            <param name="buffer">The byte array</param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Text.Encodings.Web.Utf8.UrlEncoder.UnescapePercentEncoding(System.Int32@,Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Read the percent-encoding and try unescape it.
+            
+            The operation first peek at the character the <paramref name="scan"/> 
+            iterator points at. If it is % the <paramref name="scan"/> is then 
+            moved on to scan the following to characters. If the two following 
+            characters are hexadecimal literals they will be unescaped and the 
+            value will be returned.
+            
+            If the first character is not % the <paramref name="scan"/> iterator 
+            will be removed beyond the location of % and -1 will be returned.
+            
+            If the following two characters can't be successfully unescaped the 
+            <paramref name="scan"/> iterator will be move behind the % and -1 
+            will be returned.
+            </summary>
+            <param name="scan">The value to read</param>
+            <param name="buffer">The byte array</param>
+            <returns>The unescaped byte if success. Otherwise return -1.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Internal.System.Text.Encodings.Web.Utf8.UrlEncoder.ReadHex(System.Int32@,Microsoft.AspNetCore.Server.Kestrel.Internal.System.Span{System.Byte})">
+            <summary>
+            Read the next char and convert it into hexadecimal value.
+            
+            The <paramref name="scan"/> index will be moved to the next
+            byte no matter no matter whether the operation successes.
+            </summary>
+            <param name="scan">The index of the byte in the buffer to read</param>
+            <param name="buffer">The byte span from which the hex to be read</param>
+            <returns>The hexadecimal value if successes, otherwise -1.</returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.FileHandleType">
+            <summary>
+            Enumerates the <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.FileHandle"/> types.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.Type">
+            <summary>
+            The type of interface being described: either an <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.IPEndPoint"/>, Unix domain socket path, or a file descriptor.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.IPEndPoint">
+            <summary>
+            The <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.IPEndPoint"/> to bind to.
+            Only set if <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.Type"/> is <see cref="F:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.ListenType.IPEndPoint"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.SocketPath">
+            <summary>
+            The absolute path to a Unix domain socket to bind to.
+            Only set if <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.Type"/> is <see cref="F:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.ListenType.SocketPath"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.FileHandle">
+            <summary>
+            A file descriptor for the socket to open.
+            Only set if <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.Type"/> is <see cref="F:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.ListenType.FileHandle"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.HandleType">
+            <summary>
+            The type of file descriptor being used.
+            Only set if <see cref="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.Type"/> is <see cref="F:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.ListenType.FileHandle"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation.NoDelay">
+            <summary>
+            Set to false to enable Nagle's algorithm for all connections.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.ListenType">
+            <summary>
+            Enumerates the <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal.IEndPointInformation"/> types.
+            </summary>
+        </member>
+    </members>
+</doc>

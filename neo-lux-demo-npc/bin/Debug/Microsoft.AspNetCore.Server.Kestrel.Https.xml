@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.AspNetCore.Server.Kestrel.Https</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode">
+            <summary>
+            Describes the client certificate requirements for a HTTPS connection.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.NoCertificate">
+            <summary>
+            A client certificate is not required and will not be requested from clients.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.AllowCertificate">
+            <summary>
+            A client certificate will be requested; however, authentication will not fail if a certificate is not provided by the client.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.RequireCertificate">
+            <summary>
+            A client certificate will be requested, and the client must provide a valid certificate for authentication to succeed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions">
+            <summary>
+            Settings for how Kestrel should handle HTTPS connections.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions.ServerCertificate">
+            <summary>
+            <para>
+            Specifies the server certificate used to authenticate HTTPS connections.
+            </para>
+            <para>
+            If the server certificate has an Extended Key Usage extension, the usages must include Server Authentication (OID 1.3.6.1.5.5.7.3.1).
+            </para>
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions.ClientCertificateMode">
+            <summary>
+            Specifies the client certificate requirements for a HTTPS connection. Defaults to <see cref="F:Microsoft.AspNetCore.Server.Kestrel.Https.ClientCertificateMode.NoCertificate"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions.ClientCertificateValidation">
+            <summary>
+            Specifies a callback for additional client certificate validation that will be invoked during authentication.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions.SslProtocols">
+            <summary>
+            Specifies allowable SSL protocols. Defaults to <see cref="F:System.Security.Authentication.SslProtocols.Tls12" /> and <see cref="F:System.Security.Authentication.SslProtocols.Tls11"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions.CheckCertificateRevocation">
+            <summary>
+            Specifies whether the certificate revocation list is checked during authentication.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsStrings.AuthenticationFailed">
+            <summary>
+            Failed to authenticate HTTPS connection.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsStrings.FormatAuthenticationFailed">
+            <summary>
+            Failed to authenticate HTTPS connection.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsStrings.InvalidServerCertificateEku">
+            <summary>
+            Certificate {thumbprint} cannot be used as an SSL server certificate. It has an Extended Key Usage extension but the usages do not include Server Authentication (OID 1.3.6.1.5.5.7.3.1).
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsStrings.FormatInvalidServerCertificateEku(System.Object)">
+            <summary>
+            Certificate {thumbprint} cannot be used as an SSL server certificate. It has an Extended Key Usage extension but the usages do not include Server Authentication (OID 1.3.6.1.5.5.7.3.1).
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsStrings.ServiceCertificateRequired">
+            <summary>
+            The server certificate parameter is required.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Server.Kestrel.Https.HttpsStrings.FormatServiceCertificateRequired">
+            <summary>
+            The server certificate parameter is required.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions">
+            <summary>
+            Extension methods fro <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/> that configure Kestrel to use HTTPS for a given endpoint.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions,System.String)">
+            <summary>
+            Configure Kestrel to use HTTPS.
+            </summary>
+            <param name="listenOptions">
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/> to configure.
+            </param>
+            <param name="fileName">
+            The name of a certificate file, relative to the directory that contains the application content files.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions,System.String,System.String)">
+            <summary>
+            Configure Kestrel to use HTTPS.
+            </summary>
+            <param name="listenOptions">
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/> to configure.
+            </param>
+            <param name="fileName">
+            The name of a certificate file, relative to the directory that contains the application content files.
+            </param>
+            <param name="password">
+            The password required to access the X.509 certificate data.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Configure Kestrel to use HTTPS.
+            </summary>
+            <param name="listenOptions">
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/> to configure.
+            </param>
+            <param name="serverCertificate">
+            The X.509 certificate.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions,Microsoft.AspNetCore.Server.Kestrel.Https.HttpsConnectionAdapterOptions)">
+            <summary>
+            Configure Kestrel to use HTTPS.
+            </summary>
+            <param name="listenOptions">
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/> to configure.
+            </param>
+            <param name="httpsOptions">
+            Options to configure HTTPS.
+            </param>
+            <returns>
+            The <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.ListenOptions"/>.
+            </returns>
+        </member>
+    </members>
+</doc>

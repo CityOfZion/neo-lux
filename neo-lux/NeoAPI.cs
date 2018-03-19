@@ -6,6 +6,7 @@ using Neo.Cryptography;
 using Neo.VM;
 using System.Numerics;
 using Neo.Emulator;
+using System.Diagnostics;
 
 namespace NeoLux
 {
@@ -114,60 +115,123 @@ namespace NeoLux
             }
         }
 
+        private static int level = 0;
         protected static object ParseStack(DataNode stack)
         {
+            object results = null;
+            object[] items = null;
+
             if (stack != null)
             {
-                if (stack.ChildCount == 1)
+                //Console.WriteLine("level0:\t" + level.ToString() + "\tName: " + stack.Name + "\tKind: " + stack.Kind.ToString() + "\tChildren: " + stack.ChildCount.ToString());
+                level++;
+                if (stack.Children.Count() > 0 && stack.Name == "stack")
                 {
-                    var item = stack.Children.FirstOrDefault();
-                    if (item != null)
+                    foreach (var stackChild in stack.Children)
                     {
-                        var type = item.GetString("type");
-                        var val = item.GetString("value");
-
-                        switch (type)
+                        if (stackChild.ChildCount >= 1)
                         {
-                            case "ByteArray":
-                                {
-                                    return val.HexToBytes();
-                                }
-
-                            case "Boolean":
-                                {
-                                    return (val.ToLower() == "true");
-                                }
-
-                            case "Integer":
-                                {
-                                    BigInteger intVal;
-                                    BigInteger.TryParse(val, out intVal);
-                                    return intVal;
-                                }
-
+                            items = ParseStackItems(stackChild.Children);
                         }
-
-                        return val;
                     }
+                }
+                level--;
+            }
+
+            if (items.Length > 0)
+            {
+                results = items[0];
+            }
+
+            return results;
+        }
+
+        protected static object[] ParseStackItems(IEnumerable<DataNode> stackItems)
+        {
+            object[] results = null;
+
+            level++;
+            var items = new List<object>();
+            foreach (DataNode stackChildItem in stackItems)
+            {
+                string Name = stackChildItem.Name;
+                NodeKind Kind = stackChildItem.Kind;
+                string Value = stackChildItem.Value;
+                string type = stackChildItem.GetString("type");
+                string value = stackChildItem.GetString("value");
+                
+                //Console.WriteLine("level1:\t" + level.ToString() + "\tName: " + (String.IsNullOrEmpty(Name) ? "<null>" : Name) + "\tKind: " + Kind.ToString() + "\tValue: " + (String.IsNullOrEmpty(Value) ? "<null>" : Value) + "\ttype: " + (String.IsNullOrEmpty(type) ? "<null>" : type) + "\tvalue: " + (String.IsNullOrEmpty(value) ? "<null>" : value) + "\tChildCount: " + stackChildItem.ChildCount.ToString());
+
+                object temp = null;
+                switch (Kind)
+                {
+                    case NodeKind.String:
+                        {
+                            // TODO
+                            break;
+                        }
+                    case NodeKind.Object:
+                        {
+                            switch (type)
+                            {
+                                case "ByteArray":
+                                    {
+                                        temp = value.HexToBytes();
+                                        break;
+                                    }
+
+                                case "Boolean":
+                                    {
+                                        temp = (value.ToLower() == "true");
+                                        break;
+                                    }
+
+                                case "Integer":
+                                    {
+                                        BigInteger intVal;
+                                        BigInteger.TryParse(value, out intVal);
+                                        temp = intVal;
+                                        break;
+                                    }
+                                case "Array": // Type
+                                    {
+                                        temp = ParseStackItems(stackChildItem.Children);
+                                        break;
+                                    }
+                                default:
+                                    {
+                                        //Console.WriteLine("ParseStack:unknown DataNode stack type: '" + type + "'");
+                                        break;
+                                    }
+                            }
+                            break;
+                        }
+                    case NodeKind.Array:
+                        {
+                            temp = ParseStackItems(stackChildItem.Children);
+                            break;
+                        }
+                    default:
+                        {
+                            //throw new ArgumentOutOfRangeException("ParseStack:unknown DataNode stack type: '" + type + "'");
+                            //Console.WriteLine("ParseStack:unknown DataNode stack Kind: " + Kind.ToString());
+                            break;
+                        }
+                }
+
+                if (temp == null)
+                {
+                    // Do nothing
                 }
                 else
                 {
-                    var items = new List<Object>();
-
-                    foreach (var item in stack.Children)
-                    {
-                        var temp = ParseStack(item);
-
-                        items.Add(temp);
-                    }
-
-                    var result = items.ToArray();
-                    return result;
+                    items.Add(temp);
                 }
-
             }
+            results = items.ToArray();
+            level--;
 
-            return null;
+            return results;
         }
 
         public abstract InvokeResult TestInvokeScript(string scriptHash, object[] args);
@@ -220,7 +284,7 @@ namespace NeoLux
             }
             else
             {
-                throw new Exception("Unsupport contract param: " + item.ToString());
+                throw new Exception("Unsupported contract parameter: " + item.ToString());
             }
         }
 
