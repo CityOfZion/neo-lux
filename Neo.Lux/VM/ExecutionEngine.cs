@@ -168,11 +168,13 @@ namespace Neo.Lux.VM
                             }
 
                             byte[] script_hash = context.OpReader.ReadBytes(20);
+                            Console.WriteLine($"ExecuteOp: script_hash {script_hash.ToHexString()}");
                             if (script_hash.All(p => p == 0))
                             {
                                 script_hash = EvaluationStack.Pop().GetByteArray();
                             }
 
+                            Console.WriteLine($"ExecuteOp: script_hash {script_hash.ToHexString()}");
                             byte[] script = table.GetScript(script_hash);
                             if (script == null)
                             {

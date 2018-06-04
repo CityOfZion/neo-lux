@@ -41,6 +41,7 @@
 
   <ItemGroup>
     <PackageReference Include="LunarParser" Version="1.0.32" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 
   <ItemGroup>
