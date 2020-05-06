@@ -7,6 +7,7 @@ using System.Numerics;
 using Neo.Lux.Utils;
 using Neo.Lux.VM;
 using System.Threading;
+using System.Text;
 
 namespace Neo.Lux.Core
 {
@@ -187,7 +188,7 @@ namespace Neo.Lux.Core
                 AddToken("NRVE", "a721d5893480260bd28ca1f395f2c465d0b5b1c2", "Narrative", 8);
                 AddToken("THOR", "67a5086bac196b67d5fd20745b0dc9db4d2930ed", "Thor", 8);
                 AddToken("RHT", "2328008e6f6c7bd157a342e789389eb034d9cbc4", "HashPuppy", 0);
-                AddToken("IAM", "891daf0e1750a1031ebe23030828ad7781d874d6", "BridgeProtocol", 8);
+                AddToken("BRDG", "bac0d143a547dc66a1d6a2b7d66b06de42614971", "BridgeProtocol", 8);
                 AddToken("SWTH", "ab38352559b8b203bde5fddfa0b07d8b2525e132", "Switcheo", 8);
                 AddToken("OBT", "0e86a40588f715fcaf7acd1812d50af478e6e917", "Orbis", 8);
                 AddToken("ONT", "ceab719b8baa2310f232ee0d277c061704541cfb", "Ontology", 8);
@@ -640,18 +641,18 @@ namespace Neo.Lux.Core
 
         }
 
-        public Transaction CallContract(KeyPair key, UInt160 scriptHash, object[] args, string attachSymbol = null, IEnumerable<Transaction.Output> attachTargets = null)
+        public Transaction CallContract(KeyPair key, UInt160 scriptHash, object[] args, string attachSymbol = null, IEnumerable<Transaction.Output> attachTargets = null, string remark = null)
         {
             var bytes = GenerateScript(scriptHash, args);
-            return CallContract(key, scriptHash, bytes, attachSymbol, attachTargets);
+            return CallContract(key, scriptHash, bytes, attachSymbol, attachTargets, remark);
         }
 
-        public Transaction CallContract(KeyPair key, UInt160 scriptHash, string operation, object[] args, string attachSymbol = null, IEnumerable<Transaction.Output> attachTargets = null)
+        public Transaction CallContract(KeyPair key, UInt160 scriptHash, string operation, object[] args, string attachSymbol = null, IEnumerable<Transaction.Output> attachTargets = null, string remark = null)
         {
-            return CallContract(key, scriptHash, new object[] { operation, args }, attachSymbol, attachTargets);
+            return CallContract(key, scriptHash, new object[] { operation, args }, attachSymbol, attachTargets, remark);
         }
 
-        public Transaction CallContract(KeyPair key, UInt160 scriptHash, byte[] bytes, string attachSymbol = null, IEnumerable<Transaction.Output> attachTargets = null)
+        public Transaction CallContract(KeyPair key, UInt160 scriptHash, byte[] bytes, string attachSymbol = null, IEnumerable<Transaction.Output> attachTargets = null, string remark = null)
         {
             List<Transaction.Input> inputs = null;
             List<Transaction.Output> outputs = null;
@@ -681,6 +682,10 @@ namespace Neo.Lux.Core
                 outputs = outputs != null ? outputs.ToArray() : null,
                 attributes = inputs == null ? (new TransactionAttribute[] { new TransactionAttribute(TransactionAttributeUsage.Script, key.address.AddressToScriptHash()) } ) : null
             };
+
+            //Add a unique
+            if (transaction.attributes == null && !String.IsNullOrEmpty(remark))
+                transaction.attributes = (new TransactionAttribute[] { new TransactionAttribute(TransactionAttributeUsage.Remark, Encoding.ASCII.GetBytes(remark)) });
 
             transaction.Sign(key);
 

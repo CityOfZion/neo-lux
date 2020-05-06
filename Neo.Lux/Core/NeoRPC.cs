@@ -378,15 +378,15 @@ namespace Neo.Lux.Core
 
                 case NEONodesKind.COZ:
                     {
-                        if (port == 10331)
+                        if (port == 10331 || port == 10332)
                         {
                             port = 443;
                         }
 
-                        nodes = new string[5];
+                        nodes = new string[10];
                         for (int i = 0; i < nodes.Length; i++)
                         {                            
-                            nodes[i] = $"http://seed{i}.cityofzion.io:{port}";
+                            nodes[i] = $"https://seed{i}.cityofzion.io:{port}";
                         }
                         break;
                     }
@@ -405,11 +405,9 @@ namespace Neo.Lux.Core
 
         protected override string GetRPCEndpoint()
         {
-            rpcIndex++;
-            if (rpcIndex >= nodes.Length)
-            {
-                rpcIndex = 0;
-            }
+            //Get a random node
+            Random rnd = new Random();
+            int rpcIndex = rnd.Next(0, nodes.Length-1);
 
             return nodes[rpcIndex];
         }

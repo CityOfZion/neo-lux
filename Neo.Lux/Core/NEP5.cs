@@ -194,22 +194,22 @@ namespace Neo.Lux.Core
             }
         }
 
-        public Transaction Transfer(KeyPair from_key, string to_address, decimal value)
+        public Transaction Transfer(KeyPair from_key, string to_address, decimal value, string remark = null)
         {
-            return Transfer(from_key, to_address.GetScriptHashFromAddress(), value);
+            return Transfer(from_key, to_address.GetScriptHashFromAddress(), value, remark);
         }
 
-        public Transaction Transfer(KeyPair from_key, UInt160 to_address_hash, decimal value)
+        public Transaction Transfer(KeyPair from_key, UInt160 to_address_hash, decimal value, string remark = null)
         {
-            return Transfer(from_key, to_address_hash.ToArray(), value);
+            return Transfer(from_key, to_address_hash.ToArray(), value, remark);
         }
 
-        public Transaction Transfer(KeyPair from_key, byte[] to_address_hash, decimal value)
+        public Transaction Transfer(KeyPair from_key, byte[] to_address_hash, decimal value, string remark = null)
         {
             BigInteger amount = ConvertToBigInt(value);
 
             var sender_address_hash = from_key.address.GetScriptHashFromAddress();
-            var response = api.CallContract(from_key, ScriptHash, "transfer", new object[] { sender_address_hash, to_address_hash, amount });
+            var response = api.CallContract(from_key, ScriptHash, "transfer", new object[] { sender_address_hash, to_address_hash, amount }, null, null, remark);
             return response;
         }
 
